@@ -16,7 +16,7 @@ public class Books {
         return "Books{" +
                 "name='" + name + '\'' +
                 ", yearOfPublishing=" + yearOfPublishing +
-                ", author='" + author + '\'' +
+                ", author='" + author + '\'' + '\n'+
                 '}';
     }
 }
