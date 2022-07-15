@@ -22,8 +22,7 @@ public class Logic {
    public static String getRandomItem(String[] list ){
        Random random = new Random();
        int rand = random.nextInt(list.length);
-       String newItem = list[rand];
-       return newItem;
+       return list[rand];
    }
 
 /*
@@ -31,16 +30,12 @@ I use Id range from 700000 to 799999,
 so diff - 99999;
  */
    public static String getRandomPassportId(){
-       int diff = 99999;
-       Random random = new Random();
-       int i = random.nextInt(diff + 1);
-       i += 700000;
+       int i = (int)((Math.random() * 99999) + 700000);
        return "KM" + i;
    }
 
    public static Cats createRandomCat(){
-       Cats cat = new Cats(getRandomName(),getRandomAddress(),getRandomOwnerName(),getRandomPassportId());
-       return cat;
+       return new Cats(getRandomName(),getRandomAddress(),getRandomOwnerName(),getRandomPassportId());
    }
 
    public static List<Cats> createAListOfCats(){
@@ -48,12 +43,11 @@ so diff - 99999;
                catList.add(createRandomCat());
            } return catList;
        }
-   public static List<Cats> changeAddress(String newAddress){
+   public static void changeAddress(String newAddress){
        for (Cats cats: catList){
            if (!cats.getAddress().equals(newAddress)){
                cats.setAddress(newAddress);
-           } continue;
+           }
        }
-       return catList;
    }
 }
